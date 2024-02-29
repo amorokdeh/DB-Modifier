@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PostgreSQL Data</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tables in database</h1>
+    </header>
+
+    <div class="add-table-cbaseontainer">
+        <!-- Add New Table Form (existing code) -->
+    </div>
+    
+    <div class="navbar">
+        <label for="schema-select">Select Schema:</label>
+        <select id="schema-select" onchange="changeSchema()"></select>
+    </div>
+
+    <div class="add-table-container">
+      <h2 class="add-table-element">Add New Table</h2>
+      <form id="add-table-form">
+          <div class="add-table-element">
+              <label class="add-table-element" for="datenthemen">Table name</label>
+              <input type="text" id="table-name" name="datenthemen" placeholder="Enter a table name">
+          </div>
+
+          <div class="add-table-element">
+              <label class="add-table-element" for="beschreibung">Description</label>
+              <textarea type="text" id="table-info" name="beschreibung" placeholder="Enter description"></textarea>
+          </div>
+
+          <div class="add-table-element">
+            <label class="add-table-element" for="new-type">Geometry type</label>
+            <select class="add-table-element" id="geometry-type" name="new-type">
+                <option value="point_field">Point</option>
+                <option value="multipolygon_field">MultiPolygon</option>
+            </select>
+          </div>
+
+          <div class="add-table-element" id="element-container">
+
+          </div>
+          <button class="add-table-element" type="button" id="add-element-btn">Add Element</button>
+          <button class="add-table-button" type="button" id="add-table-btn">Add Table</button>
+      </form>
+    </div>
+
+    <div class="container" id="table-list-container"></div>
+
+    <!-- Modal for displaying table information -->
+    <div id="table-info-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="table-info-content">
+                <!-- Content will be dynamically filled here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert box -->
+    <div id="alert-box" class="alert-box">
+        <span class="close-btn" onclick="closeAlertBox()">&times;</span>
+        <p id="alert-message"></p>
+    </div>
+
+    <script src="loadData.js"></script>
+    <script src="addData.js"></script>
+    <script src="deleteData.js"></script>
+    <script src="alert.js"></script>
+</body>
+</html>
